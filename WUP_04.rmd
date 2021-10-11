@@ -26,6 +26,13 @@ $H_a$ There is a significant difference in average score on the WORDSUM test bet
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
+Firstly, the data was analyzed in order to determine its status as numerical/categorical or other to choose a helper file.
+```{r}
+ourdate<-read.csv(file="GSScsv.csv")
+```
+
+The data illustrated that wordsum is a numerical variable and degree a factor variable. This indicates we should use numerical~categorical helper file.
+  
 # Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
