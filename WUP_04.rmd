@@ -43,6 +43,15 @@ The data illustrated that wordsum is a numerical variable and degree a factor va
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+
+```{r}
+basicCN <- ggplot(ourdate,aes(x=DEGREE,y=WORDSUM))
+
+basicCN + geom_boxplot()
+```
+  
+The graduate's box is the most impressive, as it has shorter interquartile ranges and the highest median. As expected according to the decreasing level of education, the order of median wordsum decreases from graduate, to bachelor and junior college, then it decreases further to high school degree, and the lowest median belongs to junior high school degree students.
+  
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
