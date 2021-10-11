@@ -26,12 +26,12 @@ $H_a$ There is a significant difference in average score on the WORDSUM test bet
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-Firstly, the data was analyzed in order to determine its status as numerical/categorical or other to choose a helper file.
+Firstly, the data was analyzed in order to determine its status as numerical/categorical or other to choose a helper file. 
 ```{r}
 ourdate<-read.csv(file="GSScsv.csv")
 ```
 
-The data illustrated that wordsum is a numerical variable and degree a factor variable. This indicates we should use numerical~categorical helper file.
+The data illustrated that wordsum is a numerical variable and degree a factor variable as it can take multiple forms in data. This indicates we should use numerical~categorical helper file.
   
 # Results
 
@@ -56,11 +56,31 @@ The graduate's box is the most impressive, as it has shorter interquartile range
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+favstats(WORDSUM~DEGREE,data=ourdate)
+```
+  
+The average wordsum is greatest for graduates at 10.095 while the mean for bachelor and junior college students are similar at 9.2045 and 9.9166 respectively. However there is more variation in the bachelor wordsum numbers opposed to the junior college wordsum numbers. The difference in average wordsum for lt high school and graduates is large.
+  
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-
+```{r}
+model1 <- aov(WORDSUM~DEGREE,data=ourdate)
+summary.aov(model1)
+```
+  
+The p-value of 0.000236 is the probability in which the data would be achieved if there were not any difference between the various forms of the factor variable (graduate, lt high school, etc.). This probability is fairly low, indicating the null hypothesis is more likely to be false, and that there is a difference. As a result, we need to utilize a tukey HSD test to test  our experimental hypothesis and see if the variables are  statistically significant.
+  
+```{r}
+#we specify the margins starting at the bottom and proceeding clockwise - thus 8.7 is the left side margin to hold the names of the factors
+par(mar = c(3, 16, 2, 2))
+plot(TukeyHSD(model1),las=2)
+```
+  
+The High school-graduate and the lt high school-graduate groups are the two conditions in which the score on the degree are statistically different. The other groups pass are decidedly not statistically different as they pass through 0.
+  
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
