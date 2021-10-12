@@ -84,3 +84,6 @@ The High school-graduate and the lt high school-graduate groups are the two cond
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+  
+After looking at the problem, we determined the type of helper file needed (numerical~cat) as we had a numerical and factor variable. Using multiple illustrations of the data, we performed boxplots, favstats, and model1 summary aov functions. The inferential analysis of the data granted us a p-value which was significant enough to use a tukey HSD test, which performed multiple T-tests to determine which are statistically different enough at the assigned confidence level of 95%. The high school and graduate groups were statistically different, as well as the lt high school and graduate group. We can conclude that the null hypothesis can be rejected for these two.
+  
